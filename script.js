@@ -35,17 +35,17 @@ let generateShop = () => {
         .map((x) => {
             let {id, name, price, desc, img} = x
         return ` 
-        <div class="item">
+        <div id=product-id-${id} class="item">
         <img width="220" src=${img} alt="">
         <div class="details">
           <h3>${name}</h3>
-          <p>"Relaxed style, comfortable fit. Shop our casual shirts now."</p>
+          <p>${desc}</p>
           <div class="price-quantity">
             <h2>$ ${price} </h2>
             <div class="buttons">
-              <i class="bi bi-dash-lg"></i>
-              <div class="quantity">0</div>
-              <i class="bi bi-plus-lg"></i>
+              <i onclick="decrement()"class="bi bi-dash-lg"></i>
+              <div id=${id} class="quantity">0</div>
+              <i onclick="increment()" class="bi bi-plus-lg"></i>
             </div>
           </div>
         </div>
@@ -55,3 +55,14 @@ let generateShop = () => {
   };
 
 generateShop();
+
+// Created increment and decrement function to add and remove clothing items
+
+let increment = () => {};
+console.log("increment");
+
+let decrement = () => {};
+console.log("decrement");
+
+let update = () => {};
+
