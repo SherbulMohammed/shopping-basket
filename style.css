@@ -8,6 +8,10 @@ body {
     font-family: sans-serif;
 }
 
+i {
+    cursor: pointer;
+}
+
 .navbar {
     display: flex;
     flex-direction: row;
@@ -51,7 +55,13 @@ body {
 
 @media (max-width: 1000px) {
     .shop{
-        grid-template-columns: repeat(4, 223px);
+        grid-template-columns: repeat(2, 223px);
+    }
+}
+
+@media (max-width: 500px) {
+    .shop{
+        grid-template-columns: repeat(1, 223px);
     }
 }
 
