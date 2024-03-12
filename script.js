@@ -74,9 +74,15 @@ let increment = (id) => {
         search.item += 1;
     }
 
+    // Added local storage so browser keeps basket as how it is
+
+localStorage.setItem("data", basket);
+
     //console.log(basket);
     update(selectedItem.id);
 };
+
+
 
 
 let decrement = (id) => {
