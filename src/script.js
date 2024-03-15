@@ -78,12 +78,12 @@ let increment = (id) => {
 
     // Added local storage so browser keeps basket as how it is
 
-localStorage.setItem("data", JSON.stringify(basket));
 
     //console.log(basket);
     update(selectedItem.id);
-};
 
+localStorage.setItem("data", JSON.stringify(basket));
+};
 
 
 
@@ -98,15 +98,15 @@ let decrement = (id) => {
         search.item -= 1;
     }
 
-     // Added local storage so browser keeps basket as how it is
-
+     
+    update(selectedItem.id);
 basket = basket.filter((x) => x.item !== 0);
 
    // console.log(basket);
-    update(selectedItem.id);
-};
 
+// Added local storage so browser keeps basket as how it is
 localStorage.setItem("data", JSON.stringify(basket));
+};
 
 let update = (id) => {
     let search = basket.find((x)=> x.id === id)
