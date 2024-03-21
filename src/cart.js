@@ -16,7 +16,7 @@ let generateCartItems = () => {
         shoppingCart.innerHTML = basket
         .map((x) => {
             let { id, item } = x;
-            let search = shopItemsData.find((y) => y.id === id);
+            let search = shopItemsData.find((y) => y.id === id) || [];
             if (!search) {
                 return `<div class="cart-item">Item details not found</div>`;
             }
@@ -104,11 +104,43 @@ let update = (id) => {
     //console.log(search.item);
     document.getElementById(id).innerHTML = search.item;
     calculation();
+    TotalAmount();
 };
 
 let removeItem = (id) => {
     let selectedItem = id;
    // console.log(selectedItem.id);
-   basket = basket.filter((x)=> x.id)
+   basket = basket.filter((x)=> x.id !== selectedItem.id);
+   generateCartItems();
+   TotalAmount();
+   calculation();
+   localStorage.setItem("data", JSON.stringify(basket));
 };
+
+let clearCart = () => {
+    basket = [];
+    generateCartItems();
+    calculation();
+    localStorage.setItem("data", JSON.stringify(basket));
+}
+
+let TotalAmount = () => {
+    if (basket.length !==0) {
+        let amount = basket.map((x)=>{
+            let { item, id} = x;
+            let search = shopItemsData.find((y) => y.id === id) || [];
+            return item * search.price;
+        }).reduce((x,y) => x+y, 0)
+        //console.log(amount);
+        label.innerHTML = `
+        <h2>Total Cost : $ ${amount}</h2>
+        <button class="checkout">Checkout</button>
+        <button onclick="clearCart()" class="removeAll">Clear Cart</button>
+        `
+    } else return
+};
+
+TotalAmount();
+
+
 
