@@ -1,8 +1,14 @@
 # Shopping Basket
 
-This is a clothing website where users can select and buy clothing items.
+Developed an e-commerce website specializing in men's clothing providing a seamless shopping experience
 
-[Click here to see a preview](http://127.0.0.1:5500/index.html)
+- Users can browse through a diverse selection of clothing
+
+- Users can select desired clothing and add them to their virtual shopping basket
+
+- Easy and friendly checkout process ensuring an an efficient shopping process
+
+[Click here to see a preview](https://sherbulmohammed.github.io/shopping-basket/)
 
 ### Inspiration
 
